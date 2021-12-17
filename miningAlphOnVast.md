@@ -1,0 +1,166 @@
+Mining Alephium on vast.ai –
+
+Navigate to vast.ai and signup for an account if needed. Load this up
+with credit. You can use your credit card to purchase credit on vast.ai.
+
+https://vast.ai/console/create/ - then click the SIGN IN button at the
+top right. If you already have an account, just log back in.
+
+![](./miningonvastmedia/image1.png){width="11.942701224846894in"
+height="4.867088801399825in"}
+
+Under the account setup, setup your public ssh key. You can refer to
+this section if you need help – https://vast.ai/faq/\#Troubleshooting
+
+![](./miningonvastmedia/image2.png){width="8.001116579177603in"
+height="8.938747812773403in"}
+
+Click Client/Create
+
+![](./miningonvastmedia/image3.png){width="1.4793733595800524in"
+height="3.510906605424322in"}
+
+Click on EDIT IMAGE & Config under the Instance Configuration.
+
+![](./miningonvastmedia/image4.png){width="3.0004188538932635in"
+height="3.4900699912510937in"}
+
+Most of the images have the necessary drivers that we need. I selected
+‘tensorflow/tensorflow’ image. Select ‘Run Interactive shell server,
+SSH.
+
+![](./miningonvastmedia/image5.png){width="9.563834208223971in"
+height="5.875820209973753in"}
+
+Paste the following script into the On-Start script box. **In the script
+below, replace your mining addresses in place of the defaults below**.
+Also, note that right now, the script downloads the miner version 0.5.0,
+and the miner version 0.4.4 – because some vast.ai servers don’t have
+the correct drivers for 0.5.0 – it will try to run 0.5.0 first and if it
+fails run 0.4.4. Obviously, this should be adjusted as new versions of
+the miner and proxy software are released.
+
+Again the below mining addresses are example addresses – put in your
+info instead.
+
+\#!/bin/bash
+
+if \[\[ ! -f config.json \]\]
+
+then
+
+apt-get -y update && apt-get -y install wget vim
+
+wget
+https://github.com/alephium/gpu-miner/releases/download/v0.5.0/alephium-0.5.0-cuda-miner-linux
+
+wget
+https://github.com/alephium/mining-proxy/releases/download/v0.1.2/alephium-mining-proxy-0.1.2-linux
+
+wget
+https://github.com/alephium/gpu-miner/releases/download/v0.4.4/alephium-0.4.4-cuda-miner-linux
+
+cat &lt;&lt;EOT &gt;&gt; config.json
+
+{
+
+"diff1TargetNumZero": 30,
+
+"jobSize": 4096,
+
+"serverHost": "52.18.87.57",
+
+"serverPort": 20032,
+
+"proxyPort": 30032,
+
+"addresses": \[
+
+"1GV4EfsCmcvRf9UpQfkDEwwUD6HMVGbQyEMbAvTUUenhN",
+
+"1Dp2KG3cgawa32V4DRgLYMxZG4ubEoDpvers7pfj97VRx",
+
+"112ZBjKPnnAJJ2PapKAnzS8n3sgHXuEack1jXpQzyRWHP",
+
+"13kEM1VA3DDvcbX8n9aNRioD2PNXokTebWHgeJZhAjCqG"
+
+\]
+
+}
+
+EOT
+
+chmod +x ale\*
+
+fi
+
+while true; do ./alephium-mining-proxy-0.1.2-linux; done &
+
+while true; do ./alephium-0.5.0-cuda-miner-linux -p 30032;
+./alephium-0.4.4-cuda-miner-linux -p 30032; sleep 1; done &
+
+Afterwards, you can set the Disk Space to Allocate to a smaller amount
+since you don’t need that much disk space for this activity. 2-3GB’s is
+plenty.
+
+Pick a server – All vast.ai servers can mine Alephium, although 10x
+series will mine much slower. You can refer to the hashrate spreadsheet
+available here
+<https://docs.google.com/spreadsheets/d/10eUjwGU-Kmw1XM1dDOKfdscOeShakSnjcBGzBT46rmc/view>
+to see what you can expect on a given card. Once you’ve selected the
+sever that you like, click RENT
+
+![](./miningonvastmedia/image6.png){width="7.855262467191601in"
+height="2.1461329833770777in"}
+
+Assuming you have credit, the server instance will be created. If you
+see a message stating insufficient funds, add sufficient credit to your
+account. Also note that starter accounts can only rent one machine. As
+your account ages, you can rent additional machines.
+
+Click on Client / Instances <https://vast.ai/console/instances/> -
+you’ll see the machine initializing. This hsouldn’t take more then a
+minute or so.
+
+![](./miningonvastmedia/image7.png){width="9.918051181102362in"
+height="1.802334864391951in"}
+
+Once initialized, click ‘Start’ if not automatically started. At this
+point, it should automatically download the mining software and start
+mining against the wallets you set above. To see status, click Connect.
+
+![](./miningonvastmedia/image8.png){width="8.282405949256344in"
+height="1.8335892388451445in"}
+
+It will give you the SSH information. Remember you have to use the SSH
+key that you previously setup to connect.
+
+![](./miningonvastmedia/image9.png){width="3.240034995625547in"
+height="2.4795122484689416in"}
+
+Using the displayed SSH information, connect to your server. In my case
+my home server has the correct ssh keys, so I can just paste the string
+displayed directly into a terminal to connect. Accept the new
+fingerprint warning and login. If your SSH key has a passphrase, you’ll
+have to type it now.
+
+![](./miningonvastmedia/image10.png){width="6.625925196850393in"
+height="0.9272123797025372in"}
+
+Once logged in, you can tail the ‘onstart.log’ file to see status of the
+miner script – run ‘tail -f onstart.log’ – you can exit by pressing
+control-c
+
+![](./miningonvastmedia/image11.png){width="6.636342957130359in"
+height="1.0939031058617672in"}
+
+![](./miningonvastmedia/image12.png){width="6.823869203849519in"
+height="4.6360640857392825in"}
+
+Check that you’re getting the expected hashrate and that things are
+working well. I rented several rigs in my testing, and did encounter one
+rig which just wasn’t performing at the advertised rate. It’s easy
+enough to ‘destroy’ that instance and start a new one. In this case, I’m
+expecting around \~1700MH for the 2080TI (from the hashrate spreadsheet)
+\* 4 cards, and this particular VM is close enough. These VM’s wont’ be
+overclocked.
