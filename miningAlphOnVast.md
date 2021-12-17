@@ -127,6 +127,8 @@ control-c
 
 ![](./miningonvastmedia/image12.png)
 
+
+# Troubleshooting / bad hosts
 Check that you’re getting the expected hashrate and that things are
 working well. I rented several rigs in my testing, and did encounter one
 rig which just wasn’t performing at the advertised rate. It’s easy
