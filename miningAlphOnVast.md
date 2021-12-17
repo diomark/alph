@@ -1,4 +1,4 @@
-# Mining Alephium on vast.ai –
+# Mining Alephium on vast.ai
 
 Navigate to vast.ai and signup for an account if needed. Load this up
 with credit. You can use your credit card to purchase credit on vast.ai.
