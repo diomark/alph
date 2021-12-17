@@ -69,6 +69,13 @@ while true; do ./alephium-0.5.0-cuda-miner-linux  -p 30032; ./alephium-0.4.4-cud
 ```
 
 
+If you're concerned about the time going out of sync/etc (some pool users have reported stale shares after running for a bit) - then replace the last two lines with these new lines which will run for 15 minutes then restart -
+
+```
+while true; do timeout 1800 ./alephium-mining-proxy-0.1.2-linux; done &
+while true; do timeout 1800 ./alephium-0.5.0-cuda-miner-linux  -p 30032; timeout 1800 ./alephium-0.4.4-cuda-miner-linux  -p 30032; sleep 1; done &
+```
+
 Afterwards, you can set the Disk Space to Allocate to a smaller amount
 since you don’t need that much disk space for this activity. 2-3GB’s is
 plenty.
