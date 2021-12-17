@@ -6,14 +6,12 @@ with credit. You can use your credit card to purchase credit on vast.ai.
 https://vast.ai/console/create/ - then click the SIGN IN button at the
 top right. If you already have an account, just log back in.
 
-![](./miningonvastmedia/image1.png){width="11.942701224846894in"
-height="4.867088801399825in"}
+![](./miningonvastmedia/image1.png)
 
 Under the account setup, setup your public ssh key. You can refer to
 this section if you need help – https://vast.ai/faq/\#Troubleshooting
 
-![](./miningonvastmedia/image2.png){width="8.001116579177603in"
-height="8.938747812773403in"}
+![](./miningonvastmedia/image2.png)
 
 Click Client/Create
 
@@ -22,15 +20,13 @@ height="3.510906605424322in"}
 
 Click on EDIT IMAGE & Config under the Instance Configuration.
 
-![](./miningonvastmedia/image4.png){width="3.0004188538932635in"
-height="3.4900699912510937in"}
+![](./miningonvastmedia/image4.png)
 
 Most of the images have the necessary drivers that we need. I selected
 ‘tensorflow/tensorflow’ image. Select ‘Run Interactive shell server,
 SSH.
 
-![](./miningonvastmedia/image5.png){width="9.563834208223971in"
-height="5.875820209973753in"}
+![](./miningonvastmedia/image5.png)
 
 Paste the following script into the On-Start script box. **In the script
 below, replace your mining addresses in place of the defaults below**.
@@ -110,8 +106,7 @@ available here
 to see what you can expect on a given card. Once you’ve selected the
 sever that you like, click RENT
 
-![](./miningonvastmedia/image6.png){width="7.855262467191601in"
-height="2.1461329833770777in"}
+![](./miningonvastmedia/image6.png)
 
 Assuming you have credit, the server instance will be created. If you
 see a message stating insufficient funds, add sufficient credit to your
@@ -122,21 +117,18 @@ Click on Client / Instances <https://vast.ai/console/instances/> -
 you’ll see the machine initializing. This hsouldn’t take more then a
 minute or so.
 
-![](./miningonvastmedia/image7.png){width="9.918051181102362in"
-height="1.802334864391951in"}
+![](./miningonvastmedia/image7.png)
 
 Once initialized, click ‘Start’ if not automatically started. At this
 point, it should automatically download the mining software and start
 mining against the wallets you set above. To see status, click Connect.
 
-![](./miningonvastmedia/image8.png){width="8.282405949256344in"
-height="1.8335892388451445in"}
+![](./miningonvastmedia/image8.png)
 
 It will give you the SSH information. Remember you have to use the SSH
 key that you previously setup to connect.
 
-![](./miningonvastmedia/image9.png){width="3.240034995625547in"
-height="2.4795122484689416in"}
+![](./miningonvastmedia/image9.png)
 
 Using the displayed SSH information, connect to your server. In my case
 my home server has the correct ssh keys, so I can just paste the string
@@ -144,18 +136,15 @@ displayed directly into a terminal to connect. Accept the new
 fingerprint warning and login. If your SSH key has a passphrase, you’ll
 have to type it now.
 
-![](./miningonvastmedia/image10.png){width="6.625925196850393in"
-height="0.9272123797025372in"}
+![](./miningonvastmedia/image10.png)
 
 Once logged in, you can tail the ‘onstart.log’ file to see status of the
 miner script – run ‘tail -f onstart.log’ – you can exit by pressing
 control-c
 
-![](./miningonvastmedia/image11.png){width="6.636342957130359in"
-height="1.0939031058617672in"}
+![](./miningonvastmedia/image11.png)
 
-![](./miningonvastmedia/image12.png){width="6.823869203849519in"
-height="4.6360640857392825in"}
+![](./miningonvastmedia/image12.png)
 
 Check that you’re getting the expected hashrate and that things are
 working well. I rented several rigs in my testing, and did encounter one
