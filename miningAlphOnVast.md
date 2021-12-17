@@ -134,3 +134,15 @@ enough to ‘destroy’ that instance and start a new one. In this case, I’m
 expecting around \~1700MH for the 2080TI (from the hashrate spreadsheet)
 \* 4 cards, and this particular VM is close enough. These VM’s wont’ be
 overclocked.
+
+Sometimes you get a bad host that just doesn't work right. Unexpectedly low hash rate, outdated drivers, etc. If you're having issues, just destory the host and get a different one.
+
+i.e. - here's an older host that the miner did not like. Viewing onstart.log showed these messages -
+```
+MapSMtoCores for SM -1116927728.21967 is undefined.  Default to use 128 Cores/SM
+GPU #32681 has #4194048 cores
+MapSMtoCores for SM -1116927728.21967 is undefined.  Default to use 128 Cores/SM
+GPU #32682 has #4194048 cores
+MapSMtoCores for SM -1116927728.21967 is undefined.  Default to use 128 Cores/SM
+GPU #32683 has #4194048 cores
+```
