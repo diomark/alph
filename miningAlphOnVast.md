@@ -9,14 +9,13 @@ top right. If you already have an account, just log back in.
 ![](./miningonvastmedia/image1.png)
 
 Under the account setup, setup your public ssh key. You can refer to
-this section if you need help – https://vast.ai/faq/\#Troubleshooting
+this section if you need help – https://vast.ai/faq/#Troubleshooting
 
 ![](./miningonvastmedia/image2.png)
 
 Click Client/Create
 
-![](./miningonvastmedia/image3.png){width="1.4793733595800524in"
-height="3.510906605424322in"}
+![](./miningonvastmedia/image3.png)
 
 Click on EDIT IMAGE & Config under the Instance Configuration.
 
