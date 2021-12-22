@@ -127,6 +127,35 @@ control-c
 
 ![](./miningonvastmedia/image12.png)
 
+## Updated script to use the latest 0.5.3 miner 
+```
+#!/bin/bash
+if [[ ! -f config.json ]]
+then
+apt-get -y update && apt-get -y install wget vim
+wget https://github.com/alephium/gpu-miner/releases/download/v0.5.3/alephium-0.5.3-cuda-miner-linux
+
+
+cat <<EOT >> config.json
+{
+    "diff1TargetNumZero": 30,
+    "jobSize": 4096,
+    "serverHost": "52.18.87.57",
+    "serverPort": 20032,
+    "proxyPort": 30032,
+    "addresses": [
+    "1GV4EfsCmcvRf9UpQfkDEwwUD6HMVGbQyEMbAvTUUenhN",
+    "1Dp2KG3cgawa32V4DRgLYMxZG4ubEoDpvers7pfj97VRx",
+    "112ZBjKPnnAJJ2PapKAnzS8n3sgHXuEack1jXpQzyRWHP",
+    "13kEM1VA3DDvcbX8n9aNRioD2PNXokTebWHgeJZhAjCqG"
+  ]
+}
+EOT
+chmod +x ale*
+fi
+while true; do ./alephium-mining-proxy-0.1.2-linux; done &
+while true; do ./alephium-0.5.3-cuda-miner-linux  -p 30032; sleep 1; done &
+```
 
 ## Troubleshooting / bad hosts
 Check that you’re getting the expected hashrate and that things are
