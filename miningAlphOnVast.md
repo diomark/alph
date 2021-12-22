@@ -38,6 +38,7 @@ the miner and proxy software are released.
 Again the below mining addresses are example addresses – put in your
 info instead.
 
+**Note** - please use the updated script at https://github.com/diomark/alph/blob/main/miningAlphOnVast.md#updated-script-to-use-the-latest-053-miner
 ```
 #!/bin/bash
 if [[ ! -f config.json ]]
