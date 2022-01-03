@@ -134,6 +134,7 @@ control-c
 if [[ ! -f config.json ]]
 then
 apt-get -y update && apt-get -y install wget vim
+wget https://github.com/alephium/mining-proxy/releases/download/v0.2.0/alephium-mining-proxy-0.2.0-linux
 wget https://github.com/alephium/gpu-miner/releases/download/v0.5.3/alephium-0.5.3-cuda-miner-linux
 
 
@@ -154,7 +155,7 @@ cat <<EOT >> config.json
 EOT
 chmod +x ale*
 fi
-while true; do ./alephium-mining-proxy-0.1.2-linux; done &
+while true; do ./alephium-mining-proxy-0.2.0-linux; done &
 while true; do ./alephium-0.5.3-cuda-miner-linux  -p 30032; sleep 1; done &
 ```
 
