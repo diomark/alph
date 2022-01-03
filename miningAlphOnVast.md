@@ -128,7 +128,7 @@ control-c
 
 ![](./miningonvastmedia/image12.png)
 
-## Updated script to use the latest 0.5.3 miner 
+## Updated script to use the latest 0.5.3 miner as well as the 0.2.0 mining proxy
 ```
 #!/bin/bash
 if [[ ! -f config.json ]]
