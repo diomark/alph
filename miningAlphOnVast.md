@@ -1,5 +1,7 @@
 # Mining Alephium on vast.ai
 
+_Note - it is no longer profitable to mine Alph on vast.ai - the cost with the network hashrate being above 30TH is around $2/alph to mine using vast.ai pricing_
+
 Navigate to vast.ai and signup for an account if needed. Load this up
 with credit. You can use your credit card to purchase credit on vast.ai.
 
